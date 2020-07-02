@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Editar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-12">
+            <div class="text-center m-5">
+                <?php
+                echo '<h1>Atualize o item ' . $id . '</h1>';
+                echo '<form action="/editarEvento/' . $id . '" method="post">';
+                ?>
+            </div>
+            <div class="row">
+                <div class="input-group mb-3">
+                    <input type="text" name="nome_evento" placeholder="Nome do evento" class="form-control" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-group mb-3">
+                    <input type="text" name="descricao_evento" placeholder="Descrição do evento" class="form-control" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-group mb-3">
+                    <select name="tipo_evento" class="custom-select" required>
+                        <option value="">Escolha um</option>
+                        <option value="Apresentação">Apresentação</option>
+                        <option value="Encontro">Encontro</option>
+                        <option value="Conversação">Conversação</option>
+                        <option value="Palestra">Palestra</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="row">
+                <div class="col-sm text-center">
+                    <button class="btn btn-secondary" type="submit">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+
+</html>

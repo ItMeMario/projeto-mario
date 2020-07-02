@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+    <form action="/inicio/" method="get">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded-bottom">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-item nav-link active" href="/inicio/">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-item nav-link" href="/aluno/">Aluno</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-item nav-link" href="/coordenacao/">Coordenação</a>
+                        </li>
+                    </div>
+                    <span class="navbar-text">
+                        <a href="/sair/">Sair</a>
+                    </span>
+                </div>
+            </nav>
+            <div class="m-5">
+                <h1>Bem vindo, <?php echo $_SESSION['login']['nome']; ?>!</h1>
+            </div>
+            <div class="col-12">
+                <div class="col-8 float-left">
+                    <input type="search" name="" id="" placeholder="Pesquisar" class="mb-5 mx-auto form-control w-50">
+                </div>
+                <div class="col-4 float-left">
+                    <a href="/coordenacao/" class="btn btn-secondary text-center mb-5">Perfil</a>
+                </div>
+            </div>
+            <div class="col-12">
+                <?php
+                foreach ($eventos as $key => $evento) {
+                    echo '<div class="col-4 float-left">';
+                        echo '<a href="/editar/' . $evento["id"] .'" class="card-link m-2 float-left">';
+                            echo '<div class="card">';
+                                echo '<div class="card-header">';
+                                    echo' ' . $evento["tipo_evento"] . ' - ' . $evento["nome_evento"] .' ';
+                                echo '</div>';
+                                echo '<ul class="list-group list-group-flush">';
+                                    echo '<li class="list-group-item">' . $evento["descricao_evento"] . '</li>';
+                                echo '</ul>';
+                                echo '<ul class="list-group list-group-flush">';
+                                    echo '<li class="list-group-item"><a href="/excluir/' . $evento["id"] . '" class="btn btn-secondary">Excluir</a></li>';
+                                echo '</ul>';
+                            echo '</div>';
+                        echo '</a>';
+                    echo '</div>';
+                }
+                ?>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

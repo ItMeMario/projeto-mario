@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+    <?
+    if (isset($sucesso)) {
+        if ($sucesso == 'fail') {
+            echo "Login falhou. Pode ser que o e-mail já tenha sido cadastrado.";
+        }
+    }
+    ?>
+    <form action="/login/" method="post">
+        <div class="container">
+            <h1 class="text-center mt-5 mb-5">My processo</h1>
+            <div class="col-12 text-center">
+                <input type="email" name="email" placeholder="E-mail" class="form-control mx-auto mt-5 mb-1 w-50">
+            </div>
+            <div class="col-12 text-center">
+                <input type="password" name="senha" placeholder="Senha" class="form-control mx-auto mt-1 w-50">
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-6 text-center">
+                        <button type="submit" value="Enviar" class="mt-5 mb-2 btn btn-secondary w-50">Login</button>
+                    </div>
+                    <div class="col-6 text-center">
+                        <a href="/cadastro/" class="mt-5 mb-2 btn btn-secondary w-50">Cadastro</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

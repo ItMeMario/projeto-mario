@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evento</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+    <form action="/cadastrarEvento/" method="post">
+        <div class="container">
+            <div class="col-12">
+                <h1 class="text-center m-5">Cadastre seu evento</h1>
+            </div>
+            <div class="col-12">
+                <div class="col-3 text-center float-left">
+                    <a href="/inicio/" class="mt-5 btn btn-secondary text-center">Página principal</a>
+                </div>
+                <div class="col-9 float-left tex">
+                    <div class="card mx-auto mt-5 border border-dark" style="width: 18rem;">
+                        <div class="card-body">
+                            <input type="text" placeholder="Nome do evento" name="nome_evento" class="form-control m-1 border border-dark" required>
+                            <input type="text" placeholder="Descrição do evento" name="descricao_evento" class="form-control m-1 border border-dark" required>
+                            <select class="custom-select ml-1 mr-1 border border-dark" name="tipo_evento" required>
+                                <option selected value="">Escolha o tipo de evento</option>
+                                <option value="Apresentação">Apresentação</option>
+                                <option value="Conversação">Conversação</option>
+                                <option value="Encontro">Encontro</option>
+                                <option value="Palestra">Palestra</option>
+                            </select>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-secondary mt-3">Cadastrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

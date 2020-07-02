@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de usuário</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+    <form action="/cadastro/" method="post">
+        <div class="container">
+            <h1 class="text-center mt-5 mb-5">My processo</h1>
+            <div class="col-12">
+                <input type="text" name="nome" class="mx-auto form-control mt-1 mb-1 w-50" placeholder="Nome" required>
+            </div>
+            <div class="col-12">
+                <input type="email" name="email" class="mx-auto form-control mb-1 w-50" placeholder="E-mail" required>
+            </div>
+            <div class="col-12">
+                <input type="password" name="senha" class="mx-auto form-control mt-1 mb-1 w-50" placeholder="Senha" required>
+            </div>
+            <div class="col-12 text-center">
+                <select class="custom-select w-50" name="funcao" required>
+                    <option selected value="">Escolha sua função</option>
+                    <option value="Aluno">Aluno</option>
+                    <option value="Administrador">Administrador</option>
+                </select>
+            </div>
+            <div class="col-12 text-center">
+                <input type="submit" value="Enviar" class="btn btn-secondary mt-5 mb-5">
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>
