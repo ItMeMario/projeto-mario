@@ -1,0 +1,14 @@
+{
+  "name": "clear",
+  "version": "1.0.0",
+  "description": "Para rodar a aplicação execute:  \r     cd/\r     C:\r     cd (caminho)\\(caminho)\r     php -S localhost:8888 -t public public/index.php",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

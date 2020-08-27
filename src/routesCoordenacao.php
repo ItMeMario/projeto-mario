@@ -15,7 +15,16 @@ return function (App $app) {
             return $response->withRedirect('/login/');
             exit;
         }
+        $conexao = $container->get('pdo'); //conexão com o banco
+        $resultSet = $conexao->query('SELECT * FROM evento
+                                      WHERE usuario_id = "' . $_SESSION['login']['id'] . '"  ')->fetchAll();
+        $args['eventos'] = $resultSet;
 
+        $resultSet = $conexao->query('SELECT * FROM evento')->fetchAll();
+        $args['eventos_todos'] = $resultSet;
+
+
+        
         // Render index view
         return $container->get('renderer')->render($response, 'coordenacao.phtml', $args);
     });

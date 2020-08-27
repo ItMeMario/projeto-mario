@@ -32,7 +32,8 @@ return function (App $app) {
         // Validação do e-mail e da senha
         if (count($resultSet) == 1) {
             $_SESSION['login']['ehLogado'] = true;
-            $_SESSION['login']['nome'] = $resultSet[0]['nome'];         
+            $_SESSION['login']['nome'] = $resultSet[0]['nome'];        
+            $_SESSION['login']['id'] = $resultSet[0]['id']; 
             return $response->withRedirect('/inicio/');
         } else {
             $_SESSION['login']['ehLogado'] = false;

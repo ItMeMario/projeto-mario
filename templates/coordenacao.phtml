@@ -47,58 +47,43 @@
                                 <th scope="col">Local</th>
                             </tr>
                         </thead>
-                        <tbody>
+                         <tbody>
+                        <?php
+                        foreach ($eventos_todos as $key => $evento) {
+                      
+                          ?>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>X</td>
-                                <td>12/12/2020</td>
-                                <td>Bom Jesus</td>
+                                <td scope="row"><?php echo $evento['nome_evento'];?></td>
+                                <td scope="row"><?php echo $evento['data_evento'];?></td>
+                                <td scope="row"><?php echo $evento['tipo_evento'];?></td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Y</td>
-                                <td>12/12/2020</td>
-                                <td>Bom Jesus</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Z</td>
-                                <td>12/12/2020</td>
-                                <td>Bom Jesus</td>
-                            </tr>
-                        </tbody>
+                    <?php } ?>
+                        </tbody> 
                     </table>
                 </div>
                 <div class="col-6 float-left">
                     <table class="table table-dark mt-5 mb-5">
                         <thead>
-                            <tr>
-                                <th scope="col">#</th>
+                            <tr>         
                                 <th scope="col">Eventos que cadastrei</th>
                                 <th scope="col">Data</th>
-                                <th scope="col">Local</th>
+                                <th scope="col">Tipo</th>
                             </tr>
                         </thead>
-                        <tbody>
+                         <tbody>
+                        <?php
+                        foreach ($eventos as $key => $evento) {
+                      
+                          ?>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>X</td>
-                                <td>12/12/2020</td>
-                                <td>Bom Jesus</td>
+                                <td scope="row"><?php echo $evento['nome_evento'];?></td>
+                                <td scope="row"><?php echo $evento['data_evento'];?></td>
+                                <td scope="row"><?php echo $evento['tipo_evento'];?></td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Y</td>
-                                <td>12/12/2020</td>
-                                <td>Bom Jesus</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Z</td>
-                                <td>12/12/2020</td>
-                                <td>Bom Jesus</td>
-                            </tr>
-                        </tbody>
+                    <?php } ?>
+                   
+  
+                        </tbody> 
                     </table>
                 </div>
             </div>
