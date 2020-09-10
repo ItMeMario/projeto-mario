@@ -56,8 +56,9 @@
                                     echo '<li class="list-group-item">' . $evento["descricao_evento"] . '</li>';
                                 echo '</ul>';
                                 echo '<ul class="list-group list-group-flush">';
-                                    echo '<li class="list-group-item"><a href="/excluir/' . $evento["id"] . '" class="btn btn-secondary">Excluir</a></li>';
-                                echo '</ul>';
+                                    echo '<li class="list-group-item"><a href="/inscrever/' . $evento["id"] . '" class="btn btn-secondary">Inscrever</a>';
+                                echo ' <a href="/excluir/' . $evento["id"] . '" class="btn btn-secondary">Excluir</a></li>';
+                            echo '</ul>';
                             echo '</div>';
                         echo '</a>';
                     echo '</div>';
