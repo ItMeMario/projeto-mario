@@ -41,49 +41,50 @@
                     <table class="table table-dark mt-5 mb-5">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
                                 <th scope="col">Eventos marcados</th>
                                 <th scope="col">Data</th>
                                 <th scope="col">Local</th>
                             </tr>
                         </thead>
-                         <tbody>
-                        <?php
-                        foreach ($eventos_todos as $key => $evento) {
-                      
-                          ?>
-                            <tr>
-                                <td scope="row"><?php echo $evento['nome_evento'];?></td>
-                                <td scope="row"><?php echo $evento['data_evento'];?></td>
-                                <td scope="row"><?php echo $evento['tipo_evento'];?></td>
-                            </tr>
-                    <?php } ?>
-                        </tbody> 
+                        <tbody>
+                            <?php
+                            foreach ($eventos_todos as $key => $evento) {
+
+                                echo '<tr>';
+                                echo '<td scope="row">' . $evento['nome_evento'] . '></td>';
+                                echo '<td scope="row">' . $evento['data_evento'] . '></td>';
+                                echo '<td scope="row">' . $evento['tipo_evento'] . '></td>';
+                                echo '</tr>';
+                            }
+
+                            ?>
+
+                        </tbody>
                     </table>
                 </div>
                 <div class="col-6 float-left">
                     <table class="table table-dark mt-5 mb-5">
                         <thead>
-                            <tr>         
+                            <tr>
                                 <th scope="col">Eventos que cadastrei</th>
                                 <th scope="col">Data</th>
                                 <th scope="col">Tipo</th>
                             </tr>
                         </thead>
-                         <tbody>
-                        <?php
-                        foreach ($eventos as $key => $evento) {
-                      
-                          ?>
-                            <tr>
-                                <td scope="row"><?php echo $evento['nome_evento'];?></td>
-                                <td scope="row"><?php echo $evento['data_evento'];?></td>
-                                <td scope="row"><?php echo $evento['tipo_evento'];?></td>
-                            </tr>
-                    <?php } ?>
-                   
-  
-                        </tbody> 
+                        <tbody>
+                            <?php
+                            foreach ($eventos as $key => $evento) {
+
+                            ?>
+                                <tr>
+                                    <td scope="row"><?php echo $evento['nome_evento']; ?></td>
+                                    <td scope="row"><?php echo $evento['data_evento']; ?></td>
+                                    <td scope="row"><?php echo $evento['tipo_evento']; ?></td>
+                                </tr>
+                            <?php } ?>
+
+
+                        </tbody>
                     </table>
                 </div>
             </div>

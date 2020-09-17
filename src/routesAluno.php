@@ -15,6 +15,13 @@ return function (App $app) {
             return $response->withRedirect('/login/');
             exit;
         }
+        $conexao = $container->get('pdo'); //conexão com o banco
+        $resultSet = $conexao->query('SELECT E.*, U.nome FROM evento AS E
+                                        LEFT JOIN usuario_evento AS UE ON E.id = UE.evento_id
+                                        LEFT JOIN usuario AS U ON UE.usuario_id = U.id')->fetchAll();
+        $args['eventos'] = $resultSet;
+
+        //mostrar nome_evento, tipo_evento e data_evento
 
         // Render index view
         return $container->get('renderer')->render($response, 'aluno.phtml', $args);
