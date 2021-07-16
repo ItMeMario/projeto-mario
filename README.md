@@ -1,4 +1,3 @@
-# Aplicação Exemplo Técnico SENAI
 
 Para rodar a aplicação execute:  
     cd/

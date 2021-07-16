@@ -13,7 +13,7 @@ return function (App $app) {
 
         if ($_SESSION['login']['ehLogado'] != true) {
             return $response->withRedirect('/login/');
-            exit;
+            
         }
         $conexao = $container->get('pdo'); //conexão com o banco
         $resultSet = $conexao->query('SELECT * FROM evento

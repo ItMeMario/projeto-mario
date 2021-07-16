@@ -54,11 +54,11 @@ $routes($app);
 $routes = require __DIR__ . '/../src/routesInscrever.php';
 $routes($app);
 
-$routes = require __DIR__ . '/../src/routesGerarCertificado.php';
-$routes($app);
+// $routes = require __DIR__ . '/../src/routesGerarCertificado.php';
+// $routes($app);
 
-$routes = require __DIR__ . '/../src/routesCertificado.php';
-$routes($app);
+// $routes = require __DIR__ . '/../src/routesCertificado.php';
+// $routes($app);
 
 
 // Run app
