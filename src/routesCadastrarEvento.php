@@ -32,14 +32,21 @@ return function (App $app) {
         $descricao_evento = $_POST['descricao_evento'];
         $tipo_evento = $_POST['tipo_evento'];
         $usuario_id = $_SESSION['login']['id'];
-        $data_evento = $_POST['data_evento'];
+        $data_evento_inicio = $_POST['data_evento_inicio'];
+        $data_evento_fim = $_POST['data_evento_fim'];
+        $data_inscricao_inicio = $_POST['data_incricao_inicio'];
+        $data_inscricao_fim =$_POST['data_inscricao_fim'];
 
-        $resultSet = $conexao->query("INSERT INTO evento (nome_evento, descricao_evento, tipo_evento, usuario_id,data_evento)
+
+        $resultSet = $conexao->query("INSERT INTO evento (nome_evento, descricao_evento, tipo_evento, usuario_id,data_evento_inicio,data_evento_fim,data_inscricao_inicio,data_inscricao_fim)
                                     VALUES ('$nome_evento', 
                                             '$descricao_evento',
                                             '$tipo_evento',
                                             '$usuario_id',
-                                            '$data_evento'
+                                            '$data_evento_inicio',
+                                            '$data_evento_fim',
+                                            '$data_inscricao_inicio',
+                                            '$data_inscricao_fim'
                                             )");
 
         return $response->withRedirect('/cadastrarEvento/');

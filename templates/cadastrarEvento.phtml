@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form action="/cadastrarEvento/" method="post">
+    <form action="/cadastrarEvento/" id="form_cadastro_evento" method="post">
         <div class="container">
             <div class="col-12">
                 <h1 class="text-center m-5">Cadastre seu evento</h1>
@@ -22,8 +22,20 @@
                     <div class="card mx-auto mt-5 border border-dark" style="width: 18rem;">
                         <div class="card-body">
                             <input type="text" placeholder="Nome do evento" name="nome_evento" class="form-control m-1 border border-dark" required>
-                            <input type="text" placeholder="Descrição do evento" name="descricao_evento" class="form-control m-1 border border-dark" required>
-                            <input type="datetime-local" placeholder="Data" name="data_evento" class="form-control m-1 border border-dark" required>
+                            <textarea placeholder="Descrição do evento" name="descricao_evento" class="form-control m-1 border border-dark" required ></textarea>
+                            <!-- <input type="text" placeholder="Descrição do evento" name="descricao_evento" class="form-control m-1 border border-dark" required> -->
+                            <label for="data_evento_inicio">Início do evento:</label>
+                            <input type="datetime-local"  name="data_evento_inicio" class="form-control m-1 border border-dark" required>
+                            <label for="Fim do evento">Fim do evento:</label>
+                            <input type="datetime-local" name="data_evento_fim" class="form-control m-1 border border-dark" required>
+                            <label for="data_inscricao_inicio">Inicio do periodo de inscrição:</label>
+                            <input type="datetime-local" name="data_inscricao_inicio" class="form-control m-1 border border-dark" required>
+                            <label for="data_inscricao_fim">Fim do periodo de inscrição:</label>
+                            <input type="datetime-local"  name="data_inscricao_fim" class="form-control m-1 border border-dark" required>
+                            
+                            
+
+
                             <select class="custom-select ml-1 mr-1 border border-dark" name="tipo_evento" required>
                                 <option selected value="">Escolha o tipo de evento</option>
                                 <option value="Apresentação">Apresentação</option>
@@ -33,7 +45,7 @@
                             </select>
                             <div class="text-center">
                             
-                                <button type="submit" class="btn btn-secondary mt-3">Cadastrar</button>
+                                <button type="button" onclick ="validaSubmit(this)" class="btn btn-secondary mt-3">Cadastrar</button>
                             </div>
                         </div>
                     </div>
@@ -41,6 +53,27 @@
             </div>
         </div>
     </form>
+    <script>
+        const validaSubmit = function(form){
+            const data_inicial = document.querySelector('input[name="data_evento_inicio"]').value;
+            const data_final = document.querySelector('input[name="data_evento_fim"]').value;
+            const data_inscricao_inicial = document.querySelector('input[name="data_inscricao_inicio').value;
+            const data_inscricao_final = document.querySelector('input[name="data_inscricao_fim').value;
+            if(data_inicial> data_final || data_inicial =="" || data_final ==""){
+                alert("não deu");
+
+                return;
+            }else if(data_inscricao_inicial > data_inscricao_final || data_inscricao_inicial =="" || data_inscricao_final ==""){
+                alert("não deu");
+                return;
+            }else if(data_inicial < data_inscricao_final){
+                alert("não deu");
+                return;
+            }
+            document.querySelector('#form_cadastro_evento').submit();
+        };
+
+    </script>
 </body>
 
 </html>

@@ -53,7 +53,11 @@
 
                                 echo '<tr>';
                                 echo '<td scope="row">' . $evento['nome_evento'] . '</td>';
+
+                                echo '<td scope="row">' . $evento['data_evento_inicio'] . '</td>';
+
                                 echo '<td scope="row">' . $evento['data_evento'] . '</td>';
+
                                 echo '<td scope="row">' . $evento['tipo_evento'] . '</td>';
                                 echo '</tr>';
                             }
@@ -79,7 +83,7 @@
                             ?>
                                 <tr>
                                     <td scope="row"><?php echo $evento['nome_evento']; ?></td>
-                                    <td scope="row"><?php echo $evento['data_evento']; ?></td>
+                                    <td scope="row"><?php echo $evento['data_evento_inicio']; ?></td>
                                     <td scope="row"><?php echo $evento['tipo_evento']; ?></td>
                                 </tr>
                             <?php } ?>
