@@ -7,13 +7,13 @@ use Slim\Http\Response;
 return function (App $app) {
     $container = $app->getContainer();
 
-    $app->get('/coordenacao/[{sucesso}]', function (Request $request, Response $response, array $args) use ($container) {
+    $app->get('/gerarCertificado/[{sucesso}]', function (Request $request, Response $response, array $args) use ($container) {
         // Sample log message
-        $container->get('logger')->info("Slim-Skeleton '/coordenacao/' route");
+        $container->get('logger')->info("Slim-Skeleton '/gerarCertificado/' route");
 
         if ($_SESSION['login']['ehLogado'] != true) {
             return $response->withRedirect('/login/');
-            
+           
         }
         $conexao = $container->get('pdo'); //conexão com o banco
         $resultSet = $conexao->query('SELECT * FROM evento
@@ -26,6 +26,6 @@ return function (App $app) {
 
 
         // Render index view
-        return $container->get('renderer')->render($response, 'coordenacao.phtml', $args);
+        return $container->get('renderer')->render($response, 'gerarCertificado.phtml', $args);
     });
 };

@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coordenação</title>
+    <title>Geração de certificado</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 
 <body>
-    <form action="/coordenacao/" method="get">
+    <form action="/gerarCertificado.phtml" method="get">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded-bottom">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,59 +32,27 @@
                     </span>
                 </div>
             </nav>
-            <div class="col-12">
-                <a href="/inicio/" class="btn btn-secondary text-center mt-5 mb-5">Página principal</a>
-                <a href="/cadastrarEvento/" class="btn btn-secondary text-center mt-5 mb-5">Cadastrar evento</a>
-                <a href="/gerarCertificado/" class="btn btn-secondary text-center mt-5 mb-5">Gerar certificado</a>
-            </div>
-            <div class="col-12">
-                <div class="col-6 float-left">
-                    <table class="table table-dark mt-5 mb-5">
-                        <thead>
-                            <tr>
-                                <th scope="col">Eventos marcados</th>
-                                <th scope="col">Data</th>
-                                <th scope="col">Local</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            foreach ($eventos_todos as $key => $evento) {
-
-                                echo '<tr>';
-                                echo '<td scope="row">' . $evento['nome_evento'] . '</td>';
-
-                                echo '<td scope="row">' . $evento['data_evento_inicio'] . '</td>';
-
-                                echo '<td scope="row">' . $evento['data_evento'] . '</td>';
-
-                                echo '<td scope="row">' . $evento['tipo_evento'] . '</td>';
-                                echo '</tr>';
-                            }
-
-                            ?>
-
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-6 float-left">
+        
+        <div class="col-6 float-left offset-md-3">
                     <table class="table table-dark mt-5 mb-5">
                         <thead>
                             <tr>
                                 <th scope="col">Eventos que cadastrei</th>
                                 <th scope="col">Data</th>
                                 <th scope="col">Tipo</th>
+                                <th scope="col">ações</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             foreach ($eventos as $key => $evento) {
-
+                               
                             ?>
                                 <tr>
-                                    <td scope="row"><?php echo $evento['nome_evento']; ?></td>
-                                    <td scope="row"><?php echo $evento['data_evento_inicio']; ?></td>
+                                    <td scope="row"> <?php echo $evento['nome_evento']; ?></td>
+                                    <td scope="row"><?php echo $evento['data_evento']; ?></td>
                                     <td scope="row"><?php echo $evento['tipo_evento']; ?></td>
+                                    <td scope="row"><a href="/certificado/<?php echo $evento['id'];?>" class="btn btn-secondary text-center ">Gerar certificado</a></td>
                                 </tr>
                             <?php } ?>
 
@@ -92,8 +60,7 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-        </div>
+                </div>
     </form>
 </body>
 

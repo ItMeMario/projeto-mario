@@ -15,13 +15,18 @@ return function (App $app) {
         $conexao = $container->get('pdo');
         $id = $_SESSION['login']['id'];
         $evento = $args['id'];
+        $repetido = $conexao->query("SELECT * FROM usuario_evento where usuario_id = '$id' and evento_id ='$evento'")->fetchAll();
 
+        if(sizeof($repetido)==0){
+            $resultSet = $conexao->query("INSERT INTO usuario_evento (usuario_id,evento_id) values ('$id','$evento')");
+        }
+     
         //  
 
         return $response->withRedirect('/inicio/');
     });
 
-    $app->post('/inscrever/', function (Request $request, Response $response, array $args) use ($container) {
+    $app->post('/inscrever/[{id}]', function (Request $request, Response $response, array $args) use ($container) {
         // Sample log message
         $container->get('logger')->info("Slim-Skeleton '/inscrever/' route");
 
@@ -29,8 +34,8 @@ return function (App $app) {
 
         $params = $request->getParsedBody();
 
-        $usuario_id = $_POST['usuario_id'];
-        $evento_id = $_POST['evento_id'];
+        $usuario_id = $_SESSION['login']['id'];
+        $evento_id = $args['id'];
 
 
 
