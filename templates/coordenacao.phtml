@@ -35,7 +35,6 @@
             <div class="col-12">
                 <a href="/inicio/" class="btn btn-secondary text-center mt-5 mb-5">Página principal</a>
                 <a href="/cadastrarEvento/" class="btn btn-secondary text-center mt-5 mb-5">Cadastrar evento</a>
-                <a href="/gerarCertificado/" class="btn btn-secondary text-center mt-5 mb-5">Gerar certificado</a>
             </div>
             <div class="col-12">
                 <div class="col-6 float-left">
@@ -53,11 +52,7 @@
 
                                 echo '<tr>';
                                 echo '<td scope="row">' . $evento['nome_evento'] . '</td>';
-
                                 echo '<td scope="row">' . $evento['data_evento_inicio'] . '</td>';
-
-                                echo '<td scope="row">' . $evento['data_evento'] . '</td>';
-
                                 echo '<td scope="row">' . $evento['tipo_evento'] . '</td>';
                                 echo '</tr>';
                             }
