@@ -1,3 +1,7 @@
+<?php
+
+use App\Middleware\Autenticator;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,9 +27,11 @@
                         <li class="nav-item">
                             <a class="nav-item nav-link" href="/aluno/">Aluno</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-item nav-link" href="/coordenacao/">Coordenação</a>
-                        </li>
+                        <?php if (Autenticator::eCoordenador()) { ?>
+                            <li class="nav-item">
+                                <a class="nav-item nav-link" href="/coordenacao/">Coordenação</a>
+                            </li>
+                        <?php } ?>
                     </div>
                     <span class="navbar-text">
                         <a href="/sair/">Sair</a>
@@ -33,7 +39,7 @@
                 </div>
             </nav>
             <div class="m-5">
-                <h1>Bem vindo, <?php echo $_SESSION['login']['nome']; ?>!</h1>
+                <h1>Bem vindo, <?php echo Autenticator::getNome() ?>!</h1>
             </div>
             <div class="col-12">
                 <div class="col-8 float-left">
@@ -47,20 +53,23 @@
                 <?php
                 foreach ($eventos as $key => $evento) {
                     echo '<div class="col-4 float-left">';
-                        echo '<a href="/editar/' . $evento["id"] .'" class="card-link m-2 float-left">';
-                            echo '<div class="card">';
-                                echo '<div class="card-header">';
-                                    echo' ' . $evento["tipo_evento"] . ' - ' . $evento["nome_evento"] .' ';
-                                echo '</div>';
-                                echo '<ul class="list-group list-group-flush">';
-                                    echo '<li class="list-group-item">' . $evento["descricao_evento"] . '</li>';
-                                echo '</ul>';
-                                echo '<ul class="list-group list-group-flush">';
-                                    echo '<li class="list-group-item"><a href="/inscrever/' . $evento["id"] . '" class="btn btn-secondary">Inscrever</a>';
-                                echo ' <a href="/excluir/' . $evento["id"] . '" class="btn btn-secondary">Excluir</a></li>';
-                            echo '</ul>';
-                            echo '</div>';
-                        echo '</a>';
+                    echo '<a href="/editar/' . $evento["id"] . '" class="card-link m-2 float-left">';
+                    echo '<div class="card">';
+                    echo '<div class="card-header">';
+                    echo ' ' . $evento["tipo_evento"] . ' - ' . $evento["nome_evento"] . ' ';
+                    echo '</div>';
+                    echo '<ul class="list-group list-group-flush">';
+                    echo '<li class="list-group-item">' . $evento["descricao_evento"] . '</li>';
+                    echo '</ul>';
+                    echo '<ul class="list-group list-group-flush">';
+                    echo '<li class="list-group-item"><a href="/inscrever/' . $evento["id"] . '" class="btn btn-secondary">Inscrever</a>';
+                    if($evento['usuario_id']== Autenticator::getId()){
+                      echo ' <a href="/excluir/' . $evento["id"] . '" class="btn btn-secondary">Excluir</a></li>';
+                    }
+                    echo '</ul>';
+
+                    echo '</div>';
+                    echo '</a>';
                     echo '</div>';
                 }
                 ?>
