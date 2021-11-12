@@ -15,9 +15,9 @@ return function (App $app) {
             return $response->withRedirect('/login/');
             exit;
         }
-        
+
         $conexao = $container->get('pdo');
-        
+
         $resultSet = $conexao->query('SELECT * from evento')->fetchAll();
 
         $args['eventos'] = $resultSet;
@@ -25,5 +25,4 @@ return function (App $app) {
         // Render index view
         return $container->get('renderer')->render($response, 'inicio.phtml', $args);
     });
-
 };

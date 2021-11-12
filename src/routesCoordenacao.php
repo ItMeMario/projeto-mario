@@ -23,10 +23,7 @@ return function (App $app) {
         // Sample log message
         $container->get('logger')->info("Slim-Skeleton '/coordenacao/' route");
 
-        if ($_SESSION['login']['ehLogado'] != true) {
-            return $response->withRedirect('/login/');
-            exit;
-        }
+    
         $conexao = $container->get('pdo'); //conexão com o banco
         $resultSet = $conexao->query('SELECT * FROM evento
                                       WHERE usuario_id = "' . $_SESSION['login']['id'] . '"  ')->fetchAll();

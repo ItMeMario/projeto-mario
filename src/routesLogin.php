@@ -3,6 +3,7 @@
 use Slim\App;
 use Slim\Http\Request;
 use Slim\Http\Response;
+use App\Middleware\Autenticator;
 
 return function (App $app) {
     $container = $app->getContainer();
@@ -35,6 +36,9 @@ return function (App $app) {
             $_SESSION['login']['nome'] = $resultSet[0]['nome'];
             $_SESSION['login']['funcao'] = $resultSet[0]['funcao'];
             $_SESSION['login']['id'] = $resultSet[0]['id'];
+            if (Autenticator::eAdmin()) {
+                return $response->withRedirect('/cadastro/');
+            }
             return $response->withRedirect('/inicio/');
         } else {
             $_SESSION['login']['ehLogado'] = false;

@@ -1,3 +1,7 @@
+<?php
+
+use App\Middleware\Autenticator;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,12 +24,16 @@
                         <li class="nav-item">
                             <a class="nav-item nav-link" href="/inicio/">Início</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-item nav-link active" href="/aluno/">Aluno</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-item nav-link" href="/coordenacao/">Coordenação</a>
-                        </li>
+                        <?php if (Autenticator::eAluno()) { ?>
+                            <li class="nav-item">
+                                <a class="nav-item nav-link active" href="/aluno/">Aluno</a>
+                            </li>
+                        <?php } ?>
+                        <?php if (Autenticator::eCoordenador()) { ?>
+                            <li class="nav-item">
+                                <a class="nav-item nav-link" href="/coordenacao/">Coordenação</a>
+                            </li>
+                        <?php } ?>
                     </div>
                     <span class="navbar-text">
                         <a href="/sair/">Sair</a>

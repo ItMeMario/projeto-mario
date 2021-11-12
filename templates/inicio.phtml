@@ -24,15 +24,23 @@ use App\Middleware\Autenticator;
                         <li class="nav-item">
                             <a class="nav-item nav-link active" href="/inicio/">Início</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-item nav-link" href="/aluno/">Aluno</a>
-                        </li>
+                        <?php if (Autenticator::eAluno()) { ?>
+                            <li class="nav-item">
+                                <a class="nav-item nav-link active" href="/aluno/">Aluno</a>
+                            </li>
+                        <?php } ?>
                         <?php if (Autenticator::eCoordenador()) { ?>
                             <li class="nav-item">
                                 <a class="nav-item nav-link" href="/coordenacao/">Coordenação</a>
                             </li>
                         <?php } ?>
+                        <?php if (Autenticator::eAdmin()) { ?>
+                            <li class="nav-item">
+                                <a href="/cadastro/" class="nav-item nav-link">Cadastro</a>
+                            </li>
+                        <?php } ?>
                     </div>
+
                     <span class="navbar-text">
                         <a href="/sair/">Sair</a>
                     </span>
@@ -49,6 +57,7 @@ use App\Middleware\Autenticator;
                     <a href="/coordenacao/" class="btn btn-secondary text-center mb-5">Perfil</a>
                 </div>
             </div>
+
             <div class="col-12">
                 <?php
                 foreach ($eventos as $key => $evento) {
@@ -63,8 +72,8 @@ use App\Middleware\Autenticator;
                     echo '</ul>';
                     echo '<ul class="list-group list-group-flush">';
                     echo '<li class="list-group-item"><a href="/inscrever/' . $evento["id"] . '" class="btn btn-secondary">Inscrever</a>';
-                    if($evento['usuario_id']== Autenticator::getId()){
-                      echo ' <a href="/excluir/' . $evento["id"] . '" class="btn btn-secondary">Excluir</a></li>';
+                    if ($evento['usuario_id'] == Autenticator::getId()) {
+                        echo ' <a href="/excluir/' . $evento["id"] . '" class="btn btn-secondary">Excluir</a></li>';
                     }
                     echo '</ul>';
 
